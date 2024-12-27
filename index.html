@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/all.min.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>Document</title>
+</head>
+
+<body>
+<div id="logForm" class="container mt-5 d-flex justify-content-center align-item-center">
+  <div class="card p-4 col-md-4 ">
+    <h2 class="text-center">Login</h2>
+    <div class="form-floating mb-3">
+      <input type="text" id="username" class="form-control" placeholder="Username" required>
+      <label for="username">username</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="password" id="password" class="form-control" placeholder="Password" required>
+      <label for="password">password</label>
+    </div>
+    <button onclick="login()" class="btn btn-primary btn-block mt-3">Login</button>
+    <p id="loginMessage" class="text-danger text-center mt-2"></p>
+  </div>
+</div>
+
+
+
+    <div class="container d-none" id="productForm">
+
+      <div class="container py-5">
+        <div class="form-floating mb-3">
+          <input type="text" oninput="validation('ProductName')" class="form-control" id="ProductName" placeholder="ProductName">
+          <label for="ProductName">Product Name</label>
+        </div>
+        <p id="alertProductName" class="alert alert-danger d-none">The Name must start with a letter and be 4-15 characters</p>
+
+        <div class="form-floating mb-3">
+          <input type="number" oninput="validation('ProductPrice')" class="form-control" id="ProductPrice"
+            placeholder="ProductPrice">
+          <label for="ProductPrice">Product Price</label>
+        </div>
+        <p id="alertProductPrice" class="alert alert-danger d-none">The Number must be between 1 - 1,000,000</p>
+
+        <div class="form-floating mb-3">
+          <input list="cat" oninput="validation('ProductCategory')" type="text" class="form-control" id="ProductCategory"
+            placeholder="ProductCategory">
+          <label for="ProductCategory">Product Category</label>
+          <datalist id="cat">
+            <option value="Tv"></option>
+            <option value="Mobile"></option>
+            <option value="Screens"></option>
+          </datalist>
+        </div>        
+        <p id="alertProductCategory" class="alert alert-danger d-none">Please select a valid category (Tv, Mobile, Screens)</p>
+
+        <div class="form-floating mb-3">
+          <input type="file" oninput="validation('ProductImage')" class="form-control" id="ProductImage"
+            placeholder="ProductImage">
+          <label for="ProductImage">Product Image</label>
+        </div>
+        <p id="alertProductImage" class="alert alert-danger d-none">Please select a valid image file (svg, png, jpg, jpeg)</p>
+
+        <div class="form-floating mb-3">
+          <textarea rows="10" oninput="validation('ProductDescription')" class="form-control" id="ProductDescription"
+            placeholder="ProductDescription"></textarea>
+          <label for="ProductDescription">Product Description</label>
+        </div>
+        <p id="alertProductDescription" class="alert alert-danger d-none">The description must be between 3 and 100 characters</p>
+
+        <div class="form-check mb-3">
+          <input class="ProductSale" type="checkbox" id="ProductSale">
+          <label class="ProductSale" for="ProductSale">Is on Sale?</label>
+        </div>
+
+
+        <button onclick="addProduct()" id="btnAdd" class="btn btn-info">Add Product</button>
+        <button onclick="update()" id="btnUpdate" class="btn btn-outline-warning d-none">Update Product</button>
+      </div>
+
+
+      <div class="container">
+        <input type="search" id="searchInput" oninput="search()" placeholder="Search" class="form-control mb-5">
+
+        <div class="row g-3" id="productCard">
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+</body>
+<script src="./js/bootstrap.bundle.min.js"></script>
+<script src="./js/main.js"></script>
+
+</html>
